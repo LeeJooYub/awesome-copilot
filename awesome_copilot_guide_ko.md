@@ -1,10 +1,23 @@
-# Awesome GitHub Copilot 활용 가이드
+# 🌟Awesome GitHub Copilot 활용 가이드
 
-이 문서는 **VS Code** 환경에서 **Awesome-Copilot**을 이용하여 Copilot을 효과적으로 사용하는 방법을 중점적으로 다룹니다.
+이 문서는 **VS Code** 환경에서 **Awesome-Copilot**을 이용하여 **Gihub Copilot**를 효과적으로 사용하는 방법을 중점적으로 다룹니다.
+
+
+###  **본 문서를 유효하게 활용할 수 있는 직군:**
+- 게임 개발자 (Unity/Unreal)
+- 백엔드 개발자 (Spring, .NET, Java)
+- 프론트엔드 개발자 (React, Angular, Vue)
+- 데브옵스/클라우드 엔지니어
+- 데이터 엔지니어/사이언티스트
+- 보안 전문가
+- QA 및 테스트 자동화 전문가
+- 제품 매니저/기술 문서 작성자
+- 아키텍트/시니어 개발자
+- 특히, **VS Code에서 Github Copilot을 활용하는 모든 엔지니어 직군**
 
 ---
 
-## 📋 목차
+## 📜 목차
 
 1. [Awesome Copilot 소개](#awesome-copilot-소개)
 2. [필수 환경 구성](#필수-환경-구성)
@@ -17,9 +30,30 @@
 
 ---
 
-## Awesome Copilot 소개
+## 📖 서론
 
-[Awesome Copilot](https://github.com/github/awesome-copilot)는 **VS Code**에서 GitHub Copilot을 더 효과적으로 사용할 수 있도록 도와주는 커스터마이징 템플릿 모음집 저장소 입니다. 이 저장소는 단순한 GitHub Copilot의 기본 기능을 넘어 **개인화, 혹은 팀에 맞춘 AI 코딩 환경**을 구축할 수 있게 해줍니다.
+GitHub Copilot은 코딩 생산성을 크게 향상시켜주는 강력한 도구지만, 많은 개발자들이 비슷한 한계점을 경험합니다.  
+여러분도 이런 생각을 해본 적이 있을 것입니다:
+
+- "Copilot에 **특정한 페르소나** (예시 : 코드 리뷰어)를 부여하여, 해당 역할에 맞게 대답을 조정하고 싶다."
+- "우리 팀만의 **코딩 스타일과 패턴**에 맞게 응답을 조정하고 싶다."
+- "매번 **같은 지시사항**을 반복해서 입력하는 것이 비효율적이다."
+- "**특정 작업**에 더 특화된 도움을 받고 싶다."
+
+이런 문제를 해결하기 위해 VS Code의 Copilot의 **사용자 지정 기능**(Custom Instructions, Chat Modes, Prompts)을 활용할 수 있습니다.  
+(자세한 설명은 공식 [문서](https://code.visualstudio.com/docs/copilot/copilot-customization?originUrl=%2Fdocs%2Fcopilot%2Fcopilot-customization)에서 확인할 수 있습니다.)
+해당 기능은 사용자가 일종의 **템플릿**을 작성하여, 사용자가 원하는 방향으로 Copilot의 대답을 유도하는 기능입니다.  
+그러나, 이런 템플릿을 매 프로젝트 마다, 직접 작성하거나 적용하는 것은 **또 다른 번거로운 작업**이 될 수 있습니다.  
+
+
+## 📄 Awesome Copilot 소개
+
+ [**Awesome Copilot**](https://github.com/github/awesome-copilot)은 이런 **번거로움**을 해결하고 **양질의 템플릿**을 구하기 위한 커뮤니티 기반 템플릿 모음집입니다.  
+다양한 개발자들이 만든 검증된 템플릿을 자유롭게 활용하고, 필요에 따라 수정하거나, 본인이 만든 유용한 템플릿을 기여할 수 있습니다.   
+이를 통해 템플릿을 처음부터 작성하는 수고 없이도 Copilot을 더 똑똑하고 효율적으로 활용할 수 있게 됩니다.
+
+  
+정리하자면, **Copilot의 성향 및 대답,행동** 개인/팀에서 **원하는 스타일로 조정**하기 위한, **설정 값 저장소**입니다.
 
 **주요 특징:**
 - 오픈소스 저장소로 누구나 기여 가능
@@ -27,16 +61,29 @@
 - 다양한 상황에 맞는 Chat Mode, Prompt, Instruction 템플릿 제공
 - 복사-붙여넣기만으로 바로 활용 가능한 '레시피 모음집'
 
-**대표적인 템플릿 예시:**
+## 📄 Awesome-Copilot 템플릿 카테고리
+
+Awesome-Copilot은 세 가지 핵심 템플릿 카테고리를 제공합니다.   
+각 템플릿은 복사해서 그대로 사용하셔도 되고, 팀에 맞게 적절하게 수정해서 사용해도 됩니다.  
+필요하다면, 직접 템플릿을 만들어 사용한 후, 해당 저장소에 기여를 할 수도 있습니다.
+
+| 구분 | 파일 형식 | 주요 역할 | 적용 범위 | 적용 시점 |
+|------|----------|---------|----------|----------|
+| **Instruction** | `.github/copilot-instructions.md` 또는 `.instructions.md` | 공통 규칙 정의 (코드 스타일, 리뷰 방식 등) | 저장소 또는 특정 파일 유형(`.md`, `.cs`, `.py`, `.sql` 등) | 자동 적용 (워크스페이스 로드 시) |
+| **Prompt** | `*.prompt.md` | 재사용 가능한 독립형 프롬프트 | 특정 작업에 필요한 부분 | 명시적 호출 시 (`/prompt-이름` 또는 명령 팔레트) |
+| **Chat Mode** | `*.chatmode.md` | AI의 페르소나 설정 (예: 디버그 모드, 논리 모드, 리팩토링 모드 등), 동작 원리 지정 | 대화 세션 전체 | 모드 전환 후의 채팅 세션   (채팅 입력란 좌측 드롭다운) |
+
+---
+
+## **대표적인 템플릿 예시:**
 
 - **Custom Instructions (개발 지침):**
-  - **Self-explanatory Code Commenting**: 과도한 주석을 줄이고 코드 자체가 의도를 명확하게 전달하도록 도와주는 지침. 변수명, 함수명 개선 및 코드 구조화를 통해 가독성 향상
+  - **Self-explanatory Code Commenting(자기 설명적 코드)**: 과도한 주석을 줄이고 코드 자체가 의도를 명확하게 전달하도록 도와주는 지침. 변수명, 함수명 개선 및 코드 구조화를 통해 가독성 향상
   - **C# Development**: C# 및 .NET 생태계에 최적화된 코딩 규칙. LINQ 활용, 비동기 프로그래밍 패턴, 코딩 스타일 가이드 제공
   - **Secure Coding and OWASP Guidelines**: OWASP Top 10 및 업계 보안 표준을 기반으로 보안에 강한 코드 작성 지침. XSS, SQL 인젝션 방지 등 보안 취약점 예방 기법 포함
 
 - **Prompts (작업별 프롬프트):**
   - **Create README**: 프로젝트 코드베이스를 분석하여 설치 방법, API 사용법, 의존성 등이 포함된 포괄적인 README 파일 자동 생성
-  - **Project Workflow Documentation Generator**: 애플리케이션의 엔드-투-엔드 워크플로우를 문서화하는 프롬프트. 엔트리 포인트, 서비스 계층, 데이터 액세스, 오류 처리 등 구현 청사진 생성
   - **Comprehensive Project Architecture Blueprint**: 기존 프로젝트의 아키텍처를 분석하여 다이어그램과 문서로 자동화. 기술 스택, 구현 패턴, 아키텍처 개요 등 포함
   - **.NET/C# Design Pattern Review**: C#/.NET 코드의 디자인 패턴 구현을 검토하고 개선점을 제시. SOLID 원칙, 디자인 패턴 적용 최적화 방안 제공
   - **Professional Prompt Builder**: 고품질 GitHub Copilot 프롬프트를 체계적으로 작성하는 방법 안내. 명확한 지침과 적절한 도구 활용으로 효과적인 프롬프트 작성 지원
@@ -45,26 +92,30 @@
   - **Debug Mode**: 체계적인 버그 식별 및 해결 프로세스를 제시하는 채팅 모드. 로그 분석, 예외 처리, 증상-원인 매핑 등 디버깅 효율 대폭 향상
   - **4.1-Beast Mode**: GPT-4.1 모델의 잠재력을 극대화한 고급 코딩 에이전트 모드. 
   - **Expert .NET Software Engineer**: 현대적인 소프트웨어 설계 패턴을 활용한 전문 .NET 엔지니어링 지침 제공. 아키텍처 결정, 코드 최적화, 모범 사례 추천
-  - **TDD 시리즈** (Red-Green-Refactor): 테스트 주도 개발을 위한 3단계 특화 채팅 모드. 실패 테스트 작성, 최소 코드 구현, 리팩토링 및 품질 개선 지원
+  - **TDD 시리즈** (Red-Green-Refactor): 테스트 주도 개발을 위한 3단계 특화 채팅 모드. 실패 테스트 작성, 최소 코드 구현, 리팩토링 및 품질 개선 지원  
+
+---
+
+## 템플릿 유형별 메타데이터 속성 및 예시
+
+**※메타 데이터를 설정하면, 해당 템플릿이 작동하는 방식을 설정할 수 있습니다.**   
+※본 문서는 메타데이터 중에 tools 선택에 대해서는 자세히 다루지 않습니다.
+
+| 템플릿 유형 | 메타데이터 속성 | 설명 | 예시 |
+|-----------|--------------|------|-----|
+| **Instructions** | description | 지침 파일에 대한 간략한 설명 | "TypeScript 코딩 규칙 지침" |
+|  | applyTo | **자동**으로 해당 지침을 적용할 파일 패턴(글로브 패턴) | "**/*.ts" 또는 "src/**/*.{js,ts,tsx}" |  
+| **Chat Mode** | description | 채팅 모드에 대한 간략한 설명 | "코드 리팩토링 전문가 모드" |
+|  | model | 사용할 AI 모델 | "GPT-4" 또는 "Claude Sonnet 4" |
+| **Prompt** | mode | 프롬프트 실행 채팅 모드 | "agent", "ask", "edit" 혹은 **사용자 지정 모드 (예시: 코드 리팩토링 전문가 모드)** |
+|  | model | 사용할 AI 모델 | GPT-4.1 , Claude Sonnet 3.7 등, 사용자가 사용할 수 있는 LLM 모델 |
+|  | description | 프롬프트에 대한 간략한 설명 | "아키텍처 설계 문서 생성기" |
+---
 
 
-**본 문서를 유효하게 활용할 수 있는 직군:**
-- 백엔드/프론트엔드/앱 개발자
-- 데브옵스/클라우드 엔지니어
-- QA 및 테스트 자동화 전문가
-- 데이터 엔지니어/사이언티스트
-- 제품 매니저 및 기술 문서 작성자
+이 저장소를 활용하면 프로젝트의 특성, 팀의 코딩 스타일, 개인 취향에 맞게 Copilot의 답변을 조정하는 설정 값을 쉽게 가져올 수 있습니다.
 
-**활용 가능한 상황:**
-- 코드 작성, 검토, 디버깅 과정
-- 아키텍처 설계 및 기술 의사결정
-- 문서화 및 테스트 자동화
-- 성능 최적화 및 보안 취약점 검사
-- 레거시 코드 현대화 및 리팩토링
-
-이 저장소를 활용하면 프로젝트의 특성, 팀의 코딩 스타일, 개인 취향에 맞게 AI 코딩 도구를 조정할 수 있어 생산성과 코드 품질을 크게 향상시킬 수 있습니다.
-
-## 필수 환경 구성
+## ⚙️ 필수 환경 구성
 
 Awesome Copilot 템플릿을 활용하기 위해서는 다음 환경이 필요합니다:
 
@@ -88,9 +139,14 @@ Awesome Copilot 템플릿을 활용하기 위해서는 다음 환경이 필요�
 
 설치 후 VS Code에서 GitHub 계정으로 로그인하여 Copilot 서비스에 연결해야 합니다.
 
-## 결론 미리보기
+## 📊 사용 결론 미리보기
 
 [이 섹션은 나중에 업데이트될 예정입니다]  
+
+[코드 정리 Before & After]
+
+[코드 개발 Before & After]
+
 
 [표로 커스터마이징 사용할 때와 안할 때 비교]  
 
@@ -100,181 +156,114 @@ Awesome Copilot 템플릿을 활용하기 위해서는 다음 환경이 필요�
 
 **결론** 원하는 템플릿을 스스로 만들어서 팀에 맞게 적용하는 것이 중요하다.
 
-## Awesome-Copilot 템플릿 카테고리
 
-Awesome-Copilot은 세 가지 핵심 템플릿 카테고리를 제공합니다. 각 템플릿은 자유롭게 커스터마이징하여 본인의 프로젝트와 팀에 맞게 활용할 수 있습니다.
-
-| 구분 | 파일 형식 | 주요 역할 | 적용 범위 |
-|------|----------|---------|----------|
-| **Custom Instructions** | `.github/copilot-instructions.md` 또는 `.instructions.md` | 공통 규칙 정의 (코드 스타일, 리뷰 방식 등) | 저장소/워크스페이스 전체 |
-| **Prompt Files** | `*.prompt.md` | 재사용 가능한 독립형 프롬프트 | 특정 작업에 필요시 호출 |
-| **Chat Modes** | `*.chatmode.md` | AI의 채팅 동작 방식, 도구, 접근 범위 제어 | 채팅 세션 전체 |
-
-### 요소 간 관계도
-
-```mermaid
-flowchart TD
-    A["Custom Instructions\n(공통 규칙/스타일 정의)"]
-    B["Chat Modes\n(AI 역할/동작 방식 정의)"]
-    C["Prompt Files\n(특정 작업용 템플릿)"]
-    
-    B -->|자동 적용| A
-    C -->|필요시 참조| B
-```
-
-## 활용 방법
+## 🔧 사용 방법
 
 ### 공통
 
-<div align="center">
-  <img src="images/site.png" alt="awesome-copilot 저장소" width="70%">
-  <p><em>그림 : awesome-copilot 저장소</em></p>
+1. **해당 저장소에 접속하여, 템플릿을 읽어보고 원하는 템플릿을 골라 Install 한다. [Awesome-Copilot 템플릿 목록]()**
+<div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 20px;">
+  <div style="text-align: center;">
+    <img src="images/web_install.gif" alt="웹에서 직접 인스톨" width="100%">
+    <p><em>순서1 : 원하는 템플릿을 선택한다.</em></p>
+  </div>
+  <div style="text-align: center;">
+    <img src="images/web_vscode_install.gif" alt="파일로 직접 인스톨" width="100%">
+    <p><em>순서2 : VS Code에서 확인 버튼을 누른다. </em></p>
+  </div>
 </div>
 
+2. **추가한 템플릿 목록을 확인한다.**
 <div align="center">
-  <img src="images/siteclick.png" alt="awesome-copilot 클릭" width="70%">
-  <p><em>그림 : awesome-copilot 템플릿 클릭 </em></p>
+  <img src="images/vscodelist.png" alt="원하는 instructions, chatmode, prompt를 추가한 장면" width="70%">
+  <p><em>그림 : 원하는 instructions, chatmode, prompt를 추가한 화면</em></p>
 </div>
 
-<div align="center">
-  <img src="images/vscodeafterclick.png" alt="vs-code의 import 확인" width="70%">
-  <p><em>그림 : vs-code의 import 확인</em></p>
-</div>
 
-<div align="center">
-  <img src="images/vscodelist.png" alt="instructions, chatmode, prompt를 추가한 장면" width="70%">
-  <p><em>그림 : instructions, chatmode, prompt를 추가한 장면</em></p>
-</div>
+### Instruction (지침) 사용 방법
 
-<div align="center">
-  <img src="images/vscodeusing.png" alt="instruction 자동 적용 확인 장면" width="70%">
-  <p><em>그림 : instruction 자동 적용 확인 장면</em></p>
-</div>
+- Instuction은 기본적으로 Copilot Chat을 사용시 자동 적용 된다.
+- Instruction의 메타데이터 부분에서 applyTo부분을 조정하면, 자동 적용되는 범위를 제한할 수 있다. 
 
-(기타 그림1)  
-
-(기타 그림2)   
-
-(기타 그림3)  
-
----
-
-### 1. Instruction 활용 방법
-
-#### 1.1 메타데이터 구조
-
-Custom Instruction은 `.github/copilot-instructions.md` 또는 `.instructions.md` 형식의 파일로 저장됩니다. 메타데이터 구성은 다음과 같습니다:
-
+예시 )
 ```yaml
 ---
-description: 지침 파일에 대한 간략한 설명 (채팅 보기에서 마우스 오버시 표시)
-applyTo: 명령어가 자동으로 적용되는 파일에 대한 글로벌 패턴 (예: "**/*.js")
+applyTo: "**/*.cs"
 ---
 ```
 
-#### 1.2 설정 및 적용 방법
-Custom Instruction 템플릿은 워크스페이스 전체에 자동으로 적용됩니다. 다음과 같은 절차로 설정합니다:
+이렇게 조정하면, 해당 지침은 cs파일을 수정하고 있을 때만, 적용된다.
+ 
 
-1. 프로젝트 루트에 `.github` 디렉토리 생성
-2. 디렉토리 내에 `copilot-instructions.md` 파일 추가
-3. 템플릿 내용 복사 또는 수정
+(gif)
 
-[여기에 적용된 모습 스크린샷]
 
-#### 1.3 주의사항 및 모범 사례
+#### 주의점
+- Instructions (지침)을 여러개 Import하여 파일 별로 다른 지침을 적용할 수 있습니다.  
+그럴 경우에, Chat-Mode를 기본 Agent모드로 진행하면, 특수 파일별 적용 지침들이 무시되는 오류가 있습니다. Ask,Edit등의 다른 기본 Chat-mode를 
+사용하거나, Custom Chat-Mode를 사용해야합니다.
 
-- 하나의 저장소에는 하나의 메인 Instruction만 적용하는 것이 좋습니다.
-- 팀 전체가 합의한 코딩 스타일과 관행을 반영하세요.
-- 너무 많은 규칙을 포함하면 Copilot 응답의 품질이 저하될 수 있습니다.
-- 정기적으로 업데이트하여 팀의 진화하는 요구사항을 반영하세요.
 
----
 
-### 2. Prompt 사용 방법
 
-#### 2.1 메타데이터 구조
+### Prompt (프롬프트 사용 방법)
 
-Prompt는 `*.prompt.md` 형식의 파일로 저장됩니다. 메타데이터 구성은 다음과 같습니다:
+- Awesome-Copilot에서 원하는 Prompt를 로컬에 설치한다.
+- 이후 Copilot Chat에서 '/'을 입력하면 설치한 프롬프트 목록이 나온다. 이를 실행시킨다.
 
-```yaml
----
-mode: "agent" # 프롬프트를 실행할 때 사용할 채팅 모드: ask, edit, 또는 agent(기본값)
-model: "default" # 사용할 AI 모델 (미지정시 현재 선택된 모델 사용)
-tools: ['codebase', 'search', 'terminal'] # 에이전트 모드에서 사용할 도구 배열
-description: "프롬프트에 대한 간략한 설명"
----
-```
+(gif)
 
-#### 2.2 실행 및 활용 방법
 
-Prompt 파일은 특정 작업이 필요할 때마다 명시적으로 호출하여 사용합니다:
-1. VS Code에서 명령 팔레트 열기 (Ctrl+Shift+P)
-2. `Chat: Run Prompt` 명령 실행
-3. 사용할 프롬프트 파일 선택
-4. 또는 채팅 창에서 `/prompt-이름` 형식으로 직접 호출
+#### 주의점
+- Instructions (지침)을 여러개 Import하여 파일 별로 다른 지침을 적용할 수 있습니다.  
+그럴 경우에, Chat-Mode를 기본 Agent모드로 진행하면, 특수 파일별 적용 지침들이 무시되는 오류가 있습니다. Ask,Edit등의 다른 기본 Chat-mode를 
+사용하거나, Custom Chat-Mode를 사용해야합니다.
 
-[여기에 프롬프트 실행 결과 스크린샷]
 
-#### 2.3 주의사항 및 팁
 
-- 프롬프트는 특정 작업에 집중하도록 설계하세요.
-- 너무 포괄적인 프롬프트는 결과의 품질을 떨어뜨립니다.
-- 정확한 입력 형식과 예상 출력 형식을 지정하세요.
-- 필요한 컨텍스트를 명확하게 제공하세요.
-- 프롬프트 실행 전 관련 파일들이 열려있으면 더 좋은 결과를 얻을 수 있습니다.
+### Chat-Mode (채팅 모드) 사용 방법
+
+- chat 에서 해당 부분을 클릭하여 모드를 조정한다.
+
+
+
+
+#### 주의점
+- Instructions (지침)을 여러개 Import하여 파일 별로 다른 지침을 적용할 수 있습니다.  
+그럴 경우에, Chat-Mode를 기본 Agent모드로 진행하면, 특수 파일별 적용 지침들이 무시되는 오류가 있습니다. Ask,Edit등의 다른 기본 Chat-mode를 
+사용하거나, Custom Chat-Mode를 사용해야합니다.
+
+
+
 
 ---
 
-### 3. Chat-mode 사용 방법
 
-#### 3.1 메타데이터 구조
+## ⚠️ 주의점 및 팁
 
-Chat Mode는 `*.chatmode.md` 형식의 파일로 저장됩니다. 메타데이터 구성은 다음과 같습니다:
+1. 해당 레포지토리의 템플릿들은 영어로 되어있습니다.  
+.github/copilot-instructions.md (공통 지침 파일)에 코드 작성 시를 제외하고, 프롬프트 답변과 주석은 한국어로 답변으로 대답하라는 지침을 명시해두면 좋습니다.
 
-```yaml
+2. Instructions (지침)은 여러개 Import하여 파일 별로 다른 지침을 적용할 수 있습니다.  
+그럴 경우에, Chat-Mode를 기본 Agent모드로 진행하면, 특수 파일별 적용 지침들이 무시되는 오류가 있습니다. Ask,Edit등의 다른 기본 Chat-mode를 
+사용하거나, Custom Chat-Mode를 사용해야합니다.
+
+3. 모든 템플릿을 사용하거나 적용해본 것은 아니나, 제가 사용해보고 추천할만한 템플릿은 다음과 같습니다.
+
+- 
+- 
+
+
+
 ---
-description: "채팅 모드의 역할과 용도에 대한 설명"
-tools: ['codebase', 'fetch', 'findTestFiles', 'githubRepo', 'search', 'usages'] # 사용할 도구 목록
-model: "Claude Sonnet 4" # 사용할 AI 모델 지정
----
-```
 
-메타데이터 다음에는 Chat Mode의 본문이 나오며, 여기에 AI의 역할과 행동 방식을 정의합니다:
+## ▶️ 🌟Awesome-Copilot 저장소 템플릿 사용 예시 (시나리오)
 
-```markdown
-# Planning mode instructions
+### ASP.NET Core + Blazor 를 이용한 간단한 카드게임 서버 만들기 test 
 
-You are in planning mode. Your task is to generate an implementation plan for a new feature or for refactoring existing code.
+### 📋 Instructions (명령 지침 사용)
 
-[추가 지시사항...]
-```
-
-#### 3.2 설정 및 전환 방법
-Chat Mode는 대화 세션의 성격을 규정합니다. 다음과 같이 설정하고 전환할 수 있습니다:
-
-1. VS Code에서 명령 팔레트 열기 (Ctrl+Shift+P)
-2. `Chat: Configure Chat Modes...` 명령 실행
-3. 새 Chat Mode 추가하고 파일 선택
-4. Copilot 채팅 입력란 좌측의 드롭다운에서 원하는 모드 선택
-
-[여기에 Chat Mode 전환 및 사용 중인 모습 스크린샷]
-
-#### 3.3 효과적인 활용 및 주의점
-
-- 특정 프로젝트나 작업에 전문화된 Chat Mode를 생성하세요.
-- 하나의 Chat Mode는 하나의 명확한 역할에 집중하는 것이 좋습니다.
-- 너무 복잡한 지시는 오히려 효과를 떨어뜨릴 수 있습니다.
-- Chat Mode 전환 시 이전 대화 컨텍스트는 유지되지만 AI의 역할은 변경됩니다.
-- 프로젝트 특성에 맞게 커스터마이징하여 재사용하세요.
-
-
-
-## 활용 사례 (예시)
-
-# **※ 아래 사례들은 모두 예시로, 변경될 수 있습니다.**
-
-
-### 1. Instructions - Self-explanatory Code Commenting
+#### Self-explanatory Code Commenting
 
 **템플릿**: [Self-explanatory Code Commenting Instructions](https://github.com/github/awesome-copilot/blob/main/instructions/self-explanatory-code-commenting.instructions.md)
 
@@ -302,12 +291,11 @@ Chat Mode는 대화 세션의 성격을 규정합니다. 다음과 같이 설정
 **한계점과 주의사항**:
 - 예시 : 영어 기반 템플릿이므로 한국어 주석/변수명 사용 시 일관성 유지 필요
 
-
-
-
 ---
 
-### 2. Prompt - Professional Prompt Builder
+### 💬 Prompt (프롬프트 사용)
+
+#### Professional Prompt Builder
 
 **템플릿**: [Professional Prompt Builder](https://github.com/github/awesome-copilot/blob/main/prompts/prompt-builder.prompt.md)
 
@@ -367,7 +355,10 @@ Chat Mode는 대화 세션의 성격을 규정합니다. 다음과 같이 설정
 
 ---
 
-### 4. Chat Mode - Debug
+### 🎭 Chat-Mode (채팅 모드 사용)
+
+#### Debug
+
 
 **템플릿**: [Debug Mode Instructions](https://github.com/github/awesome-copilot/blob/main/chatmodes/debug.chatmode.md)
 
@@ -485,24 +476,25 @@ Chat Mode는 대화 세션의 성격을 규정합니다. 다음과 같이 설정
 [실행 스크린샷3]  
 
 - 예시 : 코드 일관성 향상으로 팀 온보딩 시간 40% 단축
-- 예시 : 코드 리뷰 시간 35% 감소
-- 예시 : 버그 발생률 25% 감소
-
 **한계점과 주의사항**:
 - 예시 : 게임 엔진 버전별 추가 커스터마이징 필요
 - 예시 : 회사/프로젝트 특성에 맞는 추가 규칙 정의 필요
 
 ---
 
-## 추가 템플릿
+
+## ✅ 템플릿들을 인스톨하여 프로젝트를 진행한 결과
+
+
+## ✅ 추가 템플릿
 
 더 많은 템플릿이 필요하다면 [GitHub Awesome Copilot 저장소](https://github.com/github/awesome-copilot)를 참조하세요. 이 저장소는 지속적으로 업데이트되며, 다양한 분야와 언어를 위한 템플릿이 추가됩니다.
 
-## 종합 결론
+## ✅ 종합 결론
 
 [이 섹션은 나중에 업데이트될 예정입니다]
 
-## 맞춤형 템플릿 제작
+### ✅ 맞춤형 템플릿 제작
 
 Awesome Copilot은 단지 시작점일 뿐입니다. 프로젝트와 팀의 특성에 맞게 템플릿을 수정하고 개발하는 것이 중요합니다. 또한 좋은 템플릿을 개발했다면 오픈소스 저장소에 기여하여 커뮤니티와 공유할 수도 있습니다.
 
